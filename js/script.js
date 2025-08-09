@@ -115,22 +115,27 @@ function iniciarContagem(callback) {
 
 // Envia os dados para a Google Sheets via Apps Script Web App
 function enviarDados() {
-  const url = "https://script.google.com/macros/s/AKfycbwtYg7dw7sD83bk2n8PBS2I-ACkrm8jQ6OzJts65sNF-R4LfblG9hiw5E1k3LQkXEqp/exec";
+  const url = "SUA_URL_DO_WEBAPP"; // 🔹 Coloque aqui a URL publicada do Apps Script
 
-  const payload = {
-    nome: nome,
-    email: email,
-    data: inicio,
-    respostas: respostas
-  };
+  // Monta o FormData para evitar problema de CORS
+  const formData = new FormData();
+  formData.append("nome", nome);
+  formData.append("email", email);
+  formData.append("data", inicio);
+  formData.append("respostas", JSON.stringify(respostas));
 
   fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
+    body: formData
   })
     .then(res => res.text())
-    .then(resposta => console.log("✅ Dados enviados:", resposta))
-    .catch(err => console.error("❌ Erro ao enviar dados:", err));
+    .then(resposta => {
+      console.log("✅ Dados enviados:", resposta);
+    })
+    .catch(err => {
+      console.error("❌ Erro ao enviar dados:", err);
+      alert("Erro ao enviar dados. Verifique sua conexão.");
+    });
 }
+
 
