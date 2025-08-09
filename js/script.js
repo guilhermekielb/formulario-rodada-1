@@ -115,7 +115,7 @@ function iniciarContagem(callback) {
 
 // Envia os dados para a Google Sheets via Apps Script Web App
 function enviarDados() {
-  const url = "SUA_URL_DO_WEBAPP"; // 🔹 Coloque aqui a URL publicada do Apps Script
+  const url = "https://script.google.com/macros/s/AKfycbyQSwm7Y3wOjl69EuGX5eN2cNarOKMpT2CvH451cXjmLexuqVZMsCnAVjUxpwuzNfo/exec"; 
 
   // Monta o FormData para evitar problema de CORS
   const formData = new FormData();
@@ -137,5 +137,6 @@ function enviarDados() {
       alert("Erro ao enviar dados. Verifique sua conexão.");
     });
 }
+
 
 
