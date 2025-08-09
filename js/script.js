@@ -115,7 +115,7 @@ function iniciarContagem(callback) {
 
 // Envia os dados para a Google Sheets via Apps Script Web App
 function enviarDados() {
-  const url = "https://script.google.com/macros/s/AKfycbzOzocBo6nDii26Dcgj69WJUl-GScfuGC4hv1MjcLJskSj_GDet1YB1p-l1R-XV5tJE/exec";
+  const url = "https://script.google.com/macros/s/AKfycbwtYg7dw7sD83bk2n8PBS2I-ACkrm8jQ6OzJts65sNF-R4LfblG9hiw5E1k3LQkXEqp/exec";
 
   const payload = {
     nome: nome,
@@ -133,3 +133,4 @@ function enviarDados() {
     .then(resposta => console.log("✅ Dados enviados:", resposta))
     .catch(err => console.error("❌ Erro ao enviar dados:", err));
 }
+
